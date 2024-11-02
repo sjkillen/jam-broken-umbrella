@@ -11,9 +11,9 @@ func display_text(text: String):
 	interface.display_text(text)
 
 # display the dialogue for when an npc returns an item
-func returned_item_text(item: String, npc: String):
+func yelp_item_text(item: String, npc: String):
 	await await_interface()
-	story.ChoosePathString("returned_%s.%s" % [item, npc])
+	story.ChoosePathString("yelp_%s.%s" % [item, npc])
 	interface.display_text(story.ContinueMaximally())
 
 func set_interface(value: DialogueInterface):
