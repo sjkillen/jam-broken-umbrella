@@ -14,6 +14,16 @@ config/name="brokenumbrella"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ItemDatabase="*res://ItemDatabase.gd"
+
 [dotnet]
 
 project/assembly_name="brokenumbrella"
+
+[importer_defaults]
+
+animation_library={
+"import_script/path": "ItemDatabase"
+}
