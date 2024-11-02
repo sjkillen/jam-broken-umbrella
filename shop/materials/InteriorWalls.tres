@@ -6,3 +6,4 @@
 resource_name = "InteriorWalls"
 albedo_texture = ExtResource("1_q8jkp")
 roughness = 0.5
+texture_filter = 2

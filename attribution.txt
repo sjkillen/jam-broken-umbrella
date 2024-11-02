@@ -1,6 +1,8 @@
 # Public domain
 https://www.pexels.com/photo/brown-wooden-door-close-up-photography-2917375/
 https://www.pexels.com/photo/cracked-paint-on-concrete-wall-9990268/
+https://www.pexels.com/photo/pattern-on-pavement-17366766/
+https://www.pexels.com/photo/gray-rock-8892/
 
 # Apache License
 https://fonts.google.com/download/next-steps?preview.text=EXIT&query=EXI&categoryFilters=Sans+Serif:%2FSans%2F*

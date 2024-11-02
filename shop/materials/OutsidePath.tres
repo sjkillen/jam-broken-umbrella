@@ -1,8 +1,10 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://pob5cgeqxai2"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dbckij7kk45af"]
+
+[ext_resource type="Texture2D" uid="uid://b5faoupl5uh5v" path="res://shop/shop_path.png" id="1_i8y1e"]
 
 [resource]
 resource_name = "OutsidePath"
 cull_mode = 2
-albedo_color = Color(0.374995, 0.231177, 0, 1)
+albedo_texture = ExtResource("1_i8y1e")
 metallic_specular = 0.0
 roughness = 0.5

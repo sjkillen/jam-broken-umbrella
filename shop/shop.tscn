@@ -84,7 +84,7 @@ anim_player = NodePath("../../AnimationPlayer")
 [node name="Shelf" parent="." index="3"]
 script = ExtResource("3_qh6gq")
 
-[node name="GN Instance27" parent="ShelfMeshCollision" index="0"]
+[node name="GN Instance14" parent="ShelfMeshCollision" index="0"]
 script = ExtResource("5_kfso8")
 
 [node name="Control" type="Control" parent="." index="7"]
@@ -142,10 +142,10 @@ disabled = true
 
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
-[connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance27" method="_on_shelf_shelf_active_change"]
+[connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance14" method="_on_shelf_shelf_active_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Control/BackButton" method="_on_shelf_shelf_active_change"]
-[connection signal="mouse_entered" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_entered"]
-[connection signal="mouse_exited" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_exited"]
+[connection signal="mouse_entered" from="ShelfMeshCollision/GN Instance14" to="Shelf" method="_on_shelf_mouse_entered"]
+[connection signal="mouse_exited" from="ShelfMeshCollision/GN Instance14" to="Shelf" method="_on_shelf_mouse_exited"]
 [connection signal="pressed" from="Control/BackButton" to="Shelf" method="_on_back_button_pressed"]
 [connection signal="mouse_entered" from="ViewControls/Lookup" to="Camera" method="_on_lookup_mouse_entered"]
 [connection signal="mouse_exited" from="ViewControls/Lookup" to="Camera" method="_on_lookup_mouse_exited"]

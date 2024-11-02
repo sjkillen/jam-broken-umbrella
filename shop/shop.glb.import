@@ -61,6 +61,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://shop/materials/OutsidePath.tres"
 },
+"Shelf": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/Shelf.tres"
+},
 "Window": {
 "use_external/enabled": true,
 "use_external/path": "res://shop/materials/Window.tres"
@@ -100,11 +104,7 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:ShelfMesh/GN Instance26": {
-"physics/body_type": 2,
-"physics/shape_type": 1
-},
-"PATH:ShelfMeshCollision/GN Instance27": {
+"PATH:ShelfMeshCollision/GN Instance14": {
 "generate/physics": true,
 "physics/body_type": 2,
 "physics/shape_type": 1

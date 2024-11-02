@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o7fmuhxw7s8r"
-path.bptc="res://.godot/imported/shop_ceiling_light.jpg-96ba698e975e8dbf466e3e51572bfc9b.bptc.ctex"
+uid="uid://b5faoupl5uh5v"
+path.bptc="res://.godot/imported/shop_path.png-6136aa2a2fdeb8487a2bd1ead60492da.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6c4e4d02d47e5e7958834ba54328f117"
+"md5": "0b3b30587791f3da88f2ecee69bb9cb9"
 }
 
 [deps]
 
-source_file="res://shop/shop_ceiling_light.jpg"
-dest_files=["res://.godot/imported/shop_ceiling_light.jpg-96ba698e975e8dbf466e3e51572bfc9b.bptc.ctex"]
+source_file="res://shop/shop_path.png"
+dest_files=["res://.godot/imported/shop_path.png-6136aa2a2fdeb8487a2bd1ead60492da.bptc.ctex"]
 
 [params]
 
