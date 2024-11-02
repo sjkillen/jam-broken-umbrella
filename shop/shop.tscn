@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=16 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
 [ext_resource type="Script" path="res://shop/shelf.gd" id="3_qh6gq"]
 [ext_resource type="Script" path="res://shop/camera.gd" id="3_wheqh"]
+[ext_resource type="Script" path="res://shop/shelf_collision_area.gd" id="5_kfso8"]
+[ext_resource type="Script" path="res://shop/back_button.gd" id="6_hwg54"]
+[ext_resource type="PackedScene" uid="uid://d1r7m5jnixbuu" path="res://shop/door.tscn" id="7_xshsx"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
 animation = &"InitialFrame"
@@ -19,7 +22,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.580729, 0.882766), 0.500201, 0
 point_count = 3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6j35e"]
-xfade_time = 2.0
+xfade_time = 1.0
 xfade_curve = SubResource("Curve_ftm2i")
 
 [sub_resource type="Curve" id="Curve_qg4oy"]
@@ -41,8 +44,8 @@ transitions = ["Start", "Counter", SubResource("AnimationNodeStateMachineTransit
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
 
-[node name="Camera" parent="." index="3"]
-transform = Transform3D(-0.609, -0.111049, 0.785358, 6.70552e-08, 0.990151, 0.140006, -0.79317, 0.0852639, -0.603002, 2.86901, 1.69382, -2.14338)
+[node name="Camera" parent="." index="2"]
+transform = Transform3D(-0.0163415, -0.297972, 0.954435, 8.9407e-08, 0.954562, 0.298012, -0.999866, 0.00487005, -0.015599, 2.17331, 2.82995, -0.197424)
 script = ExtResource("3_wheqh")
 
 [node name="AnimationTree" type="AnimationTree" parent="Camera" index="0"]
@@ -50,9 +53,41 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_byilw")
 anim_player = NodePath("../../AnimationPlayer")
 
-[node name="Shelf" parent="." index="4"]
+[node name="Shelf" parent="." index="3"]
 script = ExtResource("3_qh6gq")
 
+[node name="GN Instance27" parent="ShelfMeshCollision" index="0"]
+script = ExtResource("5_kfso8")
+
+[node name="Control" type="Control" parent="." index="7"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+mouse_filter = 1
+
+[node name="BackButton" type="Button" parent="Control" index="0"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+script = ExtResource("6_hwg54")
+
+[node name="door" parent="." index="8" instance=ExtResource("7_xshsx")]
+
+[connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
+[connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance27" method="_on_shelf_shelf_active_change"]
+[connection signal="shelf_active_change" from="Shelf" to="Control/BackButton" method="_on_shelf_shelf_active_change"]
 [connection signal="mouse_entered" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_entered"]
 [connection signal="mouse_exited" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_exited"]
+[connection signal="pressed" from="Control/BackButton" to="Shelf" method="_on_back_button_pressed"]
