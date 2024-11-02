@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var dialog_label = $"../DescriptionUI/DialogLabel"
+
 # Shelf is selected
 var shelf_active := false
 signal shelf_active_change(v: bool)
@@ -41,6 +43,14 @@ func click_item_slot():
 		return
 	active_item = pointed_item
 	active_item_change.emit(active_item)
+	
+	print("grab item")
+	active_item.name = "sword"
+	var item_data = ItemDatabase.get_item_data(active_item.name)
+	if item_data:
+		print("Item Selected:", active_item.name)
+		print("Description:", item_data.get("initial description"))
+		show_dialog(item_data.get("initial_description"))
 
 func unclick_item_slot():
 	if not active_item:
@@ -78,3 +88,8 @@ func _process(_delta: float) -> void:
 func _on_back_button_pressed() -> void:
 	unclick_shelf()
 	unclick_item_slot()
+	
+func show_dialog(text: String) -> void:
+	#dialog_label.text = "test"
+	pass
+	

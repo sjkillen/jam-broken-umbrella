@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=23 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://shop/camera.gd" id="3_wheqh"]
 [ext_resource type="Script" path="res://shop/shelf_collision_area.gd" id="5_kfso8"]
 [ext_resource type="Script" path="res://shop/back_button.gd" id="6_hwg54"]
+[ext_resource type="PackedScene" uid="uid://cevfbb5q81xkp" path="res://dialouge/dialogue_interface.tscn" id="7_dpsqj"]
 [ext_resource type="PackedScene" uid="uid://d1r7m5jnixbuu" path="res://shop/door.tscn" id="7_xshsx"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
@@ -111,7 +112,9 @@ script = ExtResource("6_hwg54")
 
 [node name="door" parent="." index="8" instance=ExtResource("7_xshsx")]
 
-[node name="ViewControls" type="Control" parent="." index="11"]
+[node name="DialogueInterface" parent="." index="9" instance=ExtResource("7_dpsqj")]
+
+[node name="ViewControls" type="Control" parent="." index="12"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
