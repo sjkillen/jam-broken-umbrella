@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://di5atpkk1q186"]
+
+[ext_resource type="Shader" path="res://shop/materials/Window.gdshader" id="1_l6iq1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l6iq1")
+shader_parameter/color = Color(0.489959, 0.863492, 1, 1)
+shader_parameter/alpha = 0.141
+shader_parameter/specular = 1.0

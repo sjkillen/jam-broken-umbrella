@@ -3631,6 +3631,28 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"materials": {
+"Door": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/door/Door.tres"
+},
+"DoorHinge": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/door/DoorHinge.tres"
+},
+"DoorKnob": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/door/DoorKnob.tres"
+},
+"ExitSign": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/door/ExitSign.tres"
+},
+"ExitSignLetters": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/door/ExitSignLetters.tres"
+}
 }
 }
 gltf/naming_version=1

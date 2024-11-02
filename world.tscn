@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://8w7vsvoe4bum"]
+
+[ext_resource type="PackedScene" uid="uid://dbr8ftbdlu5v1" path="res://shop/shop.tscn" id="1_ld54r"]
+
+[sub_resource type="Environment" id="Environment_fcsjr"]
+background_energy_multiplier = 0.0
+glow_enabled = true
+glow_levels/6 = 1.0
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 1.59
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 7.5
+fog_depth_end = 10.6
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fcsjr")
+
+[node name="shop" parent="." instance=ExtResource("1_ld54r")]
+
+[node name="IndoorLighting" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28302, 0)
+light_energy = 0.3
+
+[node name="Outdoor Lighing" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0919, 1.96741, 7.70772)
+light_energy = 10.143
+light_cull_mask = 4294966281

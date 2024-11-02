@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dqdf8fifigtfk"]
+
+[resource]
+resource_name = "ExitSignLetters"
+cull_mode = 2
+albedo_color = Color(0.906371, 0.0130113, 0, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.905269, 2.38247e-06, 1.92523e-07, 1)
+emission_energy_multiplier = 10.0
