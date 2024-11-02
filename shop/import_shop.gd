@@ -13,4 +13,5 @@ func _post_import(scene: Node) -> Object:
 		new_child.transform = child.transform
 		shelf.add_child(new_child)
 		new_child.owner = scene
+
 	return scene

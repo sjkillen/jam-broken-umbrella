@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1r7m5jnixbuu"]
+
+[ext_resource type="PackedScene" uid="uid://5i66ay6ungtl" path="res://shop/door.glb" id="1_fwr74"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7cktq"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vncgh"]
+animation = &"DoorClose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ocfs"]
+animation = &"DoorOpened"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nwop7"]
+animation = &"DoorOpen"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_burql"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ah16j"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2v7pm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nwf17"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_urot7"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r50nv"]
+states/Closed/node = SubResource("AnimationNodeAnimation_7cktq")
+states/Closed/position = Vector2(418, 165)
+states/Closing/node = SubResource("AnimationNodeAnimation_vncgh")
+states/Closing/position = Vector2(642, 163)
+states/Opened/node = SubResource("AnimationNodeAnimation_5ocfs")
+states/Opened/position = Vector2(708, 80)
+states/Opening/node = SubResource("AnimationNodeAnimation_nwop7")
+states/Opening/position = Vector2(558, 72)
+transitions = ["Start", "Closed", SubResource("AnimationNodeStateMachineTransition_burql"), "Closed", "Opening", SubResource("AnimationNodeStateMachineTransition_ah16j"), "Closing", "Closed", SubResource("AnimationNodeStateMachineTransition_2v7pm"), "Opening", "Opened", SubResource("AnimationNodeStateMachineTransition_nwf17"), "Opened", "Closing", SubResource("AnimationNodeStateMachineTransition_urot7")]
+
+[node name="door" instance=ExtResource("1_fwr74")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_r50nv")
+anim_player = NodePath("../AnimationPlayer")

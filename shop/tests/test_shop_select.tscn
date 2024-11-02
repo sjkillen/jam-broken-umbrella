@@ -1,7 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1kvo6q7uy27c"]
+[gd_scene load_steps=5 format=3 uid="uid://d1kvo6q7uy27c"]
 
 [ext_resource type="Script" path="res://shop/tests/test_shop_select.gd" id="1_15ena"]
 [ext_resource type="PackedScene" uid="uid://dbr8ftbdlu5v1" path="res://shop/shop.tscn" id="1_na7nb"]
+
+[sub_resource type="GDScript" id="GDScript_8c8el"]
+script/source = "extends VBoxContainer
+
+
+func _on_open_door_pressed() -> void:
+	await $\"../../DoorRig\".open_door()
+	print(\"Door opened\")
+
+
+func _on_close_door_pressed() -> void:
+	await $\"../../DoorRig\".close_door()
+	print(\"Door closed\")
+"
 
 [sub_resource type="Environment" id="Environment_nuvc0"]
 
@@ -10,9 +24,40 @@ script = ExtResource("1_15ena")
 
 [node name="shop" parent="." instance=ExtResource("1_na7nb")]
 
-[node name="Camera" parent="shop" index="3"]
-transform = Transform3D(-0.609, -0.111049, 0.785358, 6.70552e-08, 0.990151, 0.140006, -0.79317, 0.0852639, -0.603002, 2.86901, 1.69382, -2.14338)
+[node name="Camera" parent="shop" index="2"]
+transform = Transform3D(-0.609001, -0.111049, 0.785358, 6.70552e-08, 0.990151, 0.140006, -0.79317, 0.0852639, -0.603002, 2.86901, 1.69382, -2.14338)
 zoom_in_offset = Vector3(1.7, 0.3, 0)
+
+[node name="Control" parent="shop" index="7"]
+visible = false
+
+[node name="BackButton" parent="shop/Control" index="0"]
+offset_top = -104.0
+
+[node name="Control2" type="Control" parent="shop"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugMenu" type="VBoxContainer" parent="shop/Control2"]
+layout_mode = 1
+offset_right = 105.0
+offset_bottom = 93.0
+script = SubResource("GDScript_8c8el")
+
+[node name="Label" type="Label" parent="shop/Control2/DebugMenu"]
+layout_mode = 2
+text = "Testing Menu"
+
+[node name="OpenDoor" type="Button" parent="shop/Control2/DebugMenu"]
+layout_mode = 2
+text = "Open Door"
+
+[node name="CloseDoor" type="Button" parent="shop/Control2/DebugMenu"]
+layout_mode = 2
+text = "Close Door"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nuvc0")
@@ -22,5 +67,7 @@ transform = Transform3D(0.335007, -0.228402, 0.914113, 0.0785936, 0.973567, 0.21
 
 [connection signal="active_item_change" from="shop/Shelf" to="." method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="shop/Shelf" to="." method="_on_shelf_shelf_active_change"]
+[connection signal="pressed" from="shop/Control2/DebugMenu/OpenDoor" to="shop/Control2/DebugMenu" method="_on_open_door_pressed"]
+[connection signal="pressed" from="shop/Control2/DebugMenu/CloseDoor" to="shop/Control2/DebugMenu" method="_on_close_door_pressed"]
 
 [editable path="shop"]

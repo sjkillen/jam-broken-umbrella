@@ -73,3 +73,8 @@ func set_cursor():
 
 func _process(_delta: float) -> void:
 	set_cursor()
+
+
+func _on_back_button_pressed() -> void:
+	unclick_shelf()
+	unclick_item_slot()
