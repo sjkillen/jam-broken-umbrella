@@ -24,4 +24,3 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContatiner"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Test dialouge"
