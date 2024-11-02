@@ -8,12 +8,12 @@ script/source = "extends VBoxContainer
 
 
 func _on_open_door_pressed() -> void:
-	await $\"../../DoorRig\".open_door()
+	await $\"../../door\".open_door()
 	print(\"Door opened\")
 
 
 func _on_close_door_pressed() -> void:
-	await $\"../../DoorRig\".close_door()
+	await $\"../../door\".close_door()
 	print(\"Door closed\")
 "
 
@@ -25,17 +25,13 @@ script = ExtResource("1_15ena")
 [node name="shop" parent="." instance=ExtResource("1_na7nb")]
 
 [node name="Camera" parent="shop" index="2"]
-transform = Transform3D(-0.609001, -0.111049, 0.785358, 6.70552e-08, 0.990151, 0.140006, -0.79317, 0.0852639, -0.603002, 2.86901, 1.69382, -2.14338)
+transform = Transform3D(-0.0163415, -0.297972, 0.954435, 8.9407e-08, 0.954563, 0.298012, -0.999867, 0.00487005, -0.015599, 2.17331, 2.82995, -0.197424)
 zoom_in_offset = Vector3(1.7, 0.3, 0)
 
-[node name="Control" parent="shop" index="7"]
-visible = false
-
 [node name="BackButton" parent="shop/Control" index="0"]
-offset_top = -104.0
+offset_top = -31.0
 
 [node name="Control2" type="Control" parent="shop"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
