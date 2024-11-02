@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=14 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
 [ext_resource type="Script" path="res://shop/shelf.gd" id="3_qh6gq"]
 [ext_resource type="Script" path="res://shop/camera.gd" id="3_wheqh"]
+[ext_resource type="Script" path="res://shop/shelf_collision_area.gd" id="5_kfso8"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
 animation = &"InitialFrame"
@@ -19,7 +20,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.580729, 0.882766), 0.500201, 0
 point_count = 3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6j35e"]
-xfade_time = 2.0
+xfade_time = 1.0
 xfade_curve = SubResource("Curve_ftm2i")
 
 [sub_resource type="Curve" id="Curve_qg4oy"]
@@ -53,6 +54,11 @@ anim_player = NodePath("../../AnimationPlayer")
 [node name="Shelf" parent="." index="4"]
 script = ExtResource("3_qh6gq")
 
+[node name="GN Instance27" parent="ShelfMeshCollision" index="0"]
+script = ExtResource("5_kfso8")
+
+[connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
+[connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance27" method="_on_shelf_shelf_active_change"]
 [connection signal="mouse_entered" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_entered"]
 [connection signal="mouse_exited" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_exited"]

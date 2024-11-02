@@ -11,7 +11,8 @@ script = ExtResource("1_15ena")
 [node name="shop" parent="." instance=ExtResource("1_na7nb")]
 
 [node name="Camera" parent="shop" index="3"]
-transform = Transform3D(-0.609, -0.111049, 0.785358, 6.70552e-08, 0.990151, 0.140006, -0.793169, 0.0852639, -0.603002, 2.86901, 1.69382, -2.14338)
+transform = Transform3D(-0.609, -0.111049, 0.785358, 6.70552e-08, 0.990151, 0.140006, -0.79317, 0.0852639, -0.603002, 2.86901, 1.69382, -2.14338)
+zoom_in_offset = Vector3(1.7, 0.3, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nuvc0")
@@ -19,6 +20,7 @@ environment = SubResource("Environment_nuvc0")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.335007, -0.228402, 0.914113, 0.0785936, 0.973567, 0.214454, -0.938932, 0, 0.344102, 0, 0, 0)
 
+[connection signal="active_item_change" from="shop/Shelf" to="." method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="shop/Shelf" to="." method="_on_shelf_shelf_active_change"]
 
 [editable path="shop"]
