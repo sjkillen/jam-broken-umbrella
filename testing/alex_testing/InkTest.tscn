@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3p0v2po2fp8b"]
+
+[ext_resource type="Script" path="res://testing/alex_testing/InkTest.cs" id="1_rkoam"]
+
+[node name="InkTest" type="VBoxContainer"]
+script = ExtResource("1_rkoam")

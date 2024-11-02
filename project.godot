@@ -22,6 +22,10 @@ ItemDatabase="*res://ItemDatabase.gd"
 
 project/assembly_name="brokenumbrella"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
+
 [importer_defaults]
 
 animation_library={
