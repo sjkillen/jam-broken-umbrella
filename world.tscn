@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://8w7vsvoe4bum"]
+
+[ext_resource type="PackedScene" uid="uid://dbr8ftbdlu5v1" path="res://shop/shop.tscn" id="1_ld54r"]
+[ext_resource type="Shader" path="res://scree.gdshader" id="2_qf285"]
+
+[sub_resource type="Environment" id="Environment_fcsjr"]
+background_energy_multiplier = 0.0
+glow_enabled = true
+glow_levels/6 = 1.0
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 1.59
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 7.5
+fog_depth_end = 9.3
+
+[sub_resource type="Gradient" id="Gradient_c1u5s"]
+offsets = PackedFloat32Array(0, 0.238806, 0.447761, 0.671642, 0.962687)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_juoeh"]
+gradient = SubResource("Gradient_c1u5s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lw6ib"]
+shader = ExtResource("2_qf285")
+shader_parameter/fade = SubResource("GradientTexture1D_juoeh")
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fcsjr")
+
+[node name="shop" parent="." instance=ExtResource("1_ld54r")]
+
+[node name="IndoorLighting" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28302, 0)
+light_energy = 0.3
+
+[node name="Outdoor Lighing" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0919, 1.96741, 7.70772)
+light_color = Color(0.91, 1, 1, 1)
+light_energy = 10.143
+light_cull_mask = 4294966281
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="ScreenSpaceShader" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_lw6ib")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

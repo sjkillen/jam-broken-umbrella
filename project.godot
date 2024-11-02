@@ -18,10 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemDatabase="*res://ItemDatabase.gd"
+DialogueManager="*res://dialouge/dialogue_manager.gd"
 
 [dotnet]
 
 project/assembly_name="brokenumbrella"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
 
 [importer_defaults]
 

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dp78nc7jkc8ky"]
+
+[ext_resource type="Texture2D" uid="uid://o7fmuhxw7s8r" path="res://shop/shop_ceiling_light.jpg" id="1_3nqoq"]
+
+[resource]
+resource_name = "LightSurface"
+cull_mode = 2
+albedo_texture = ExtResource("1_3nqoq")
+roughness = 0.5
+emission_enabled = true
+emission_texture = ExtResource("1_3nqoq")
+uv1_scale = Vector3(0.29, 1.169, 0.29)

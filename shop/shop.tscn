@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=23 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -12,8 +12,14 @@
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
 animation = &"InitialFrame"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jpiok"]
+animation = &"LookLeft"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lsekx"]
 animation = &"LookShelfFrame"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ji3a1"]
+animation = &"LookUp"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rv5th"]
 advance_mode = 2
@@ -34,20 +40,41 @@ point_count = 2
 xfade_time = 1.0
 xfade_curve = SubResource("Curve_qg4oy")
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nu0ll"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xmtic"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t2lcg"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ed1ek"]
+xfade_time = 0.2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_byilw"]
 states/Counter/node = SubResource("AnimationNodeAnimation_f1ntd")
-states/Counter/position = Vector2(438, 75)
+states/Counter/position = Vector2(456, 146)
+states/Left/node = SubResource("AnimationNodeAnimation_jpiok")
+states/Left/position = Vector2(526, 285)
 states/LookShelf/node = SubResource("AnimationNodeAnimation_lsekx")
 states/LookShelf/position = Vector2(653, 69)
 states/Start/position = Vector2(231, 92)
-transitions = ["Start", "Counter", SubResource("AnimationNodeStateMachineTransition_rv5th"), "Counter", "LookShelf", SubResource("AnimationNodeStateMachineTransition_6j35e"), "LookShelf", "Counter", SubResource("AnimationNodeStateMachineTransition_0x1e8")]
+states/Up/node = SubResource("AnimationNodeAnimation_ji3a1")
+states/Up/position = Vector2(348, 31)
+transitions = ["Start", "Counter", SubResource("AnimationNodeStateMachineTransition_rv5th"), "Counter", "LookShelf", SubResource("AnimationNodeStateMachineTransition_6j35e"), "LookShelf", "Counter", SubResource("AnimationNodeStateMachineTransition_0x1e8"), "Up", "Counter", SubResource("AnimationNodeStateMachineTransition_nu0ll"), "Counter", "Up", SubResource("AnimationNodeStateMachineTransition_xmtic"), "Left", "Counter", SubResource("AnimationNodeStateMachineTransition_t2lcg"), "Counter", "Left", SubResource("AnimationNodeStateMachineTransition_ed1ek")]
+graph_offset = Vector2(-16, 62)
 
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
 
+[node name="Walls" parent="." index="0"]
+layers = 9
+
 [node name="Camera" parent="." index="2"]
 transform = Transform3D(-0.0163415, -0.297972, 0.954435, 8.94069e-08, 0.954562, 0.298012, -0.999866, 0.00487005, -0.015599, 2.17331, 2.82995, -0.197424)
 script = ExtResource("3_wheqh")
+zoom_in_offset = Vector3(1.7, 0.3, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="Camera" index="0"]
 root_node = NodePath("../..")
@@ -57,7 +84,7 @@ anim_player = NodePath("../../AnimationPlayer")
 [node name="Shelf" parent="." index="3"]
 script = ExtResource("3_qh6gq")
 
-[node name="GN Instance27" parent="ShelfMeshCollision" index="0"]
+[node name="GN Instance14" parent="ShelfMeshCollision" index="0"]
 script = ExtResource("5_kfso8")
 
 [node name="Control" type="Control" parent="." index="7"]
@@ -87,10 +114,40 @@ script = ExtResource("6_hwg54")
 
 [node name="DialogueInterface" parent="." index="9" instance=ExtResource("7_dpsqj")]
 
+[node name="ViewControls" type="Control" parent="." index="12"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Lookup" type="Button" parent="ViewControls" index="0"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+disabled = true
+
+[node name="Lookleft" type="Button" parent="ViewControls" index="1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 116.0
+offset_bottom = 2649.0
+grow_vertical = 2
+disabled = true
+
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
-[connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance27" method="_on_shelf_shelf_active_change"]
+[connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance14" method="_on_shelf_shelf_active_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Control/BackButton" method="_on_shelf_shelf_active_change"]
-[connection signal="mouse_entered" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_entered"]
-[connection signal="mouse_exited" from="ShelfMeshCollision/GN Instance27" to="Shelf" method="_on_shelf_mouse_exited"]
+[connection signal="mouse_entered" from="ShelfMeshCollision/GN Instance14" to="Shelf" method="_on_shelf_mouse_entered"]
+[connection signal="mouse_exited" from="ShelfMeshCollision/GN Instance14" to="Shelf" method="_on_shelf_mouse_exited"]
 [connection signal="pressed" from="Control/BackButton" to="Shelf" method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="ViewControls/Lookup" to="Camera" method="_on_lookup_mouse_entered"]
+[connection signal="mouse_exited" from="ViewControls/Lookup" to="Camera" method="_on_lookup_mouse_exited"]
+[connection signal="mouse_entered" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_entered"]
+[connection signal="mouse_exited" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_exited"]
