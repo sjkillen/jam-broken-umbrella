@@ -67,3 +67,4 @@ transform = Transform3D(0.335007, -0.228402, 0.914113, 0.0785936, 0.973567, 0.21
 [connection signal="pressed" from="shop/Control2/DebugMenu/CloseDoor" to="shop/Control2/DebugMenu" method="_on_close_door_pressed"]
 
 [editable path="shop"]
+[editable path="shop/door"]

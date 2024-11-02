@@ -46,3 +46,22 @@ func _on_shelf_active_item_change(v: ItemSlot) -> void:
 	await manual_anim.finished
 	manual_anim = null
 	
+
+func player_busy():
+	return manual_anim or not $AnimationTree.active or not ["Counter", "Left", "Up"].has(fsm.get_current_node())
+
+func _on_lookup_mouse_entered() -> void:
+	if not player_busy():
+		fsm.travel("Up")
+
+func _on_lookup_mouse_exited() -> void:
+	if not player_busy():
+		fsm.travel("Counter")
+
+func _on_lookleft_mouse_entered() -> void:
+	if not player_busy():
+		fsm.travel("Left")
+
+func _on_lookleft_mouse_exited() -> void:
+	if not player_busy():
+		fsm.travel("Counter")

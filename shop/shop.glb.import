@@ -32,6 +32,73 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://shop/import_shop.gd"
 _subresources={
+"materials": {
+"Counter": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/Counter.tres"
+},
+"Cull": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/Cull.tres"
+},
+"InteriorWalls": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/InteriorWalls.tres"
+},
+"LightRim": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/LightRim.tres"
+},
+"LightSurface": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/LightSurface.tres"
+},
+"OutsideBounds": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/OutsideBounds.tres"
+},
+"OutsidePath": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/OutsidePath.tres"
+},
+"Window": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/Window.tres"
+},
+"WindowTrim": {
+"use_external/enabled": true,
+"use_external/path": "res://shop/materials/WindowTrim.tres"
+}
+},
+"meshes": {
+"shop_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 1,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"shop_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 1,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"shop_Mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 1,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+}
+},
 "nodes": {
 "PATH:ShelfMesh/GN Instance26": {
 "physics/body_type": 2,

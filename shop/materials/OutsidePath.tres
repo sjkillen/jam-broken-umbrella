@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://pob5cgeqxai2"]
+
+[resource]
+resource_name = "OutsidePath"
+cull_mode = 2
+albedo_color = Color(0.374995, 0.231177, 0, 1)
+metallic_specular = 0.0
+roughness = 0.5
