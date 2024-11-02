@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://bfytciora7ldc"]
+
+[ext_resource type="Script" path="res://itemResource.gd" id="1_pf05k"]
+
+[resource]
+script = ExtResource("1_pf05k")
+item_name = ""
+item_real_description = ""
+item_initial_description = ""
+item_is_cursed = false
+item_available = true
+item_description_reveal = false
