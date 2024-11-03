@@ -1,14 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=29 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
 [ext_resource type="Script" path="res://shop/shelf.gd" id="3_qh6gq"]
+[ext_resource type="PackedScene" uid="uid://cu8un0mx77f3e" path="res://items/all_items.tscn" id="3_ru5w2"]
 [ext_resource type="Script" path="res://shop/camera.gd" id="3_wheqh"]
 [ext_resource type="Script" path="res://shop/shelf_collision_area.gd" id="5_kfso8"]
 [ext_resource type="Script" path="res://shop/back_button.gd" id="6_hwg54"]
 [ext_resource type="PackedScene" uid="uid://cevfbb5q81xkp" path="res://dialouge/dialogue_interface.tscn" id="7_dpsqj"]
-[ext_resource type="PackedScene" path="res://shop/door.tscn" id="7_xshsx"]
+[ext_resource type="PackedScene" uid="uid://d1r7m5jnixbuu" path="res://shop/door.tscn" id="7_xshsx"]
 [ext_resource type="Script" path="res://NpcMovement.gd" id="9_ankne"]
+[ext_resource type="PackedScene" uid="uid://ct52bpu8cmxlp" path="res://shop/npc_path.glb" id="13_xfs2n"]
+[ext_resource type="Texture2D" uid="uid://5yuvjdqt0hah" path="res://burlap.png" id="14_vka06"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
 animation = &"InitialFrame"
@@ -66,51 +69,26 @@ states/Up/position = Vector2(348, 31)
 transitions = ["Start", "Counter", SubResource("AnimationNodeStateMachineTransition_rv5th"), "Counter", "LookShelf", SubResource("AnimationNodeStateMachineTransition_6j35e"), "LookShelf", "Counter", SubResource("AnimationNodeStateMachineTransition_0x1e8"), "Up", "Counter", SubResource("AnimationNodeStateMachineTransition_nu0ll"), "Counter", "Up", SubResource("AnimationNodeStateMachineTransition_xmtic"), "Left", "Counter", SubResource("AnimationNodeStateMachineTransition_t2lcg"), "Counter", "Left", SubResource("AnimationNodeStateMachineTransition_ed1ek")]
 graph_offset = Vector2(-16, 62)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvg2n"]
+albedo_texture = ExtResource("14_vka06")
+texture_filter = 2
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_thyf0"]
-
-[sub_resource type="Animation" id="Animation_63krd"]
-resource_name = "NpcEnter"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.533333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.98632, 5.12631), Vector3(0, 0.98632, 3.897), Vector3(0, 0.98632, 3.897), Vector3(0, 0.98632, 1.71519)]
-}
-
-[sub_resource type="Animation" id="Animation_it7vw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_afeu8"]
-_data = {
-"NpcEnter": SubResource("Animation_63krd"),
-"RESET": SubResource("Animation_it7vw")
-}
+radius = 0.3
+height = 1.5
+radial_segments = 6
+rings = 1
 
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
 
-[node name="Walls" parent="." index="0"]
+[node name="AllItems" parent="." index="0" instance=ExtResource("3_ru5w2")]
+unique_name_in_owner = true
+
+[node name="Walls" parent="." index="1"]
 layers = 9
 
-[node name="Camera" parent="." index="2"]
+[node name="Camera" parent="." index="3"]
 transform = Transform3D(-0.0163415, -0.297972, 0.954435, 8.94069e-08, 0.954562, 0.298012, -0.999866, 0.00487005, -0.015599, 2.17331, 2.82995, -0.197424)
 script = ExtResource("3_wheqh")
 zoom_in_offset = Vector3(1.7, 0.3, 0)
@@ -120,13 +98,14 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_byilw")
 anim_player = NodePath("../../AnimationPlayer")
 
-[node name="Shelf" parent="." index="3"]
+[node name="Shelf" parent="." index="4"]
+unique_name_in_owner = true
 script = ExtResource("3_qh6gq")
 
 [node name="GN Instance14" parent="ShelfMeshCollision" index="0"]
 script = ExtResource("5_kfso8")
 
-[node name="Control" type="Control" parent="." index="7"]
+[node name="Control" type="Control" parent="." index="8"]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -149,11 +128,11 @@ grow_vertical = 0
 text = "Back"
 script = ExtResource("6_hwg54")
 
-[node name="door" parent="." index="8" instance=ExtResource("7_xshsx")]
+[node name="door" parent="." index="9" instance=ExtResource("7_xshsx")]
 
-[node name="DialogueInterface" parent="." index="9" instance=ExtResource("7_dpsqj")]
+[node name="DialogueInterface" parent="." index="10" instance=ExtResource("7_dpsqj")]
 
-[node name="ViewControls" type="Control" parent="." index="12"]
+[node name="ViewControls" type="Control" parent="." index="13"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
@@ -179,16 +158,15 @@ offset_bottom = 2649.0
 grow_vertical = 2
 disabled = true
 
-[node name="NPC" type="Node3D" parent="." index="13"]
+[node name="NPC" parent="." index="14" instance=ExtResource("13_xfs2n")]
+top_level = true
 script = ExtResource("9_ankne")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/NPC" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.709308, 0)
+material_override = SubResource("StandardMaterial3D_pvg2n")
 mesh = SubResource("CapsuleMesh_thyf0")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC" index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_afeu8")
-}
+skeleton = NodePath("")
 
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
@@ -201,3 +179,5 @@ libraries = {
 [connection signal="mouse_exited" from="ViewControls/Lookup" to="Camera" method="_on_lookup_mouse_exited"]
 [connection signal="mouse_entered" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_entered"]
 [connection signal="mouse_exited" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_exited"]
+
+[editable path="NPC"]

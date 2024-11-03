@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://shop/item_slot.gd" id="1_4mana"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xsgvy"]
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.5, 0.626, 0.75)
 
 [node name="ItemSlot" type="Node3D"]
 script = ExtResource("1_4mana")
@@ -12,6 +12,7 @@ script = ExtResource("1_4mana")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0513656, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262775, 0)
 shape = SubResource("BoxShape3D_xsgvy")
 
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]

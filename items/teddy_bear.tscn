@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://b65t7cv80glvd"]
+
+[ext_resource type="PackedScene" uid="uid://oajxmqv7ch0e" path="res://items/teddy_bear.glb" id="1_xk3d3"]
+[ext_resource type="Script" path="res://items/item_base.gd" id="2_w0lnj"]
+[ext_resource type="Resource" uid="uid://b0bfogjpxhh4j" path="res://resources/items/teddy_bear.tres" id="3_63fgv"]
+
+[node name="teddy_bear" instance=ExtResource("1_xk3d3")]
+script = ExtResource("2_w0lnj")
+data = ExtResource("3_63fgv")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://5kfxqyhnmt1y"]
+
+[ext_resource type="PackedScene" uid="uid://b0cpt3vho2a6o" path="res://items/camera.glb" id="1_fngwk"]
+[ext_resource type="Script" path="res://items/item_base.gd" id="2_qy3bk"]
+[ext_resource type="Resource" uid="uid://dh3eafqn4mtvm" path="res://resources/items/camera.tres" id="3_ain0n"]
+
+[node name="camera" instance=ExtResource("1_fngwk")]
+script = ExtResource("2_qy3bk")
+data = ExtResource("3_ain0n")

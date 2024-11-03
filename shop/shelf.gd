@@ -16,7 +16,6 @@ var shelf_point := false
 # Item cursor is pointed to (not selected)
 var pointed_item: ItemSlot = null
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed():
 		click_item_slot()

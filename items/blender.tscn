@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://bscpqs1r0aa3n"]
+
+[ext_resource type="PackedScene" uid="uid://ca16yb7o3qi8h" path="res://items/blender.glb" id="1_5hldf"]
+[ext_resource type="Script" path="res://items/item_base.gd" id="2_t0vt6"]
+[ext_resource type="Resource" uid="uid://swfspdsmn0rr" path="res://resources/items/blender.tres" id="3_sun7v"]
+
+[node name="blender" instance=ExtResource("1_5hldf")]
+script = ExtResource("2_t0vt6")
+data = ExtResource("3_sun7v")

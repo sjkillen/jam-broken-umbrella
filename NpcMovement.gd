@@ -4,7 +4,7 @@ extends Node
 
 func _ready() -> void:
 	# Play the move animation when the NPC is ready
-	animation_player.play("NpcEnter")
+	animation_player.play("WalkInside")
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):  # Replace with your specific action

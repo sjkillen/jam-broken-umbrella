@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl3dx8nqf4nju"]
+
+[ext_resource type="PackedScene" uid="uid://bv75c5iqht6oq" path="res://items/cake_knife.glb" id="1_jxrlc"]
+[ext_resource type="Script" path="res://items/item_base.gd" id="2_v4f1b"]
+[ext_resource type="Resource" uid="uid://g50e1mt5x2yk" path="res://resources/items/cake_knife.tres" id="3_6acmr"]
+
+[node name="cake_knife" instance=ExtResource("1_jxrlc")]
+script = ExtResource("2_v4f1b")
+data = ExtResource("3_6acmr")

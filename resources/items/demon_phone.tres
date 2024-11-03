@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://bviate1t3r1uf"]
+
+[ext_resource type="Script" path="res://itemResource.gd" id="1_m5bbi"]
+
+[resource]
+script = ExtResource("1_m5bbi")
+item_name = "Phone"
+item_real_description = "Demon Phone"
+item_initial_description = "Phone"
+item_is_cursed = true
+item_available = true
+item_description_reveal = false

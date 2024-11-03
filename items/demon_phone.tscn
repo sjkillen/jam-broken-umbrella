@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7efpn7e5hrv8"]
+
+[ext_resource type="PackedScene" uid="uid://ctvawwamev1yx" path="res://items/demon_phone.glb" id="1_j5naj"]
+[ext_resource type="Script" path="res://items/item_base.gd" id="2_7y5bs"]
+[ext_resource type="Resource" uid="uid://ngaofusfbjdt" path="res://resources/items/dark_glasses.tres" id="3_6vmp0"]
+
+[node name="demon_phone" instance=ExtResource("1_j5naj")]
+script = ExtResource("2_7y5bs")
+data = ExtResource("3_6vmp0")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu8un0mx77f3e"]
+
+[ext_resource type="PackedScene" uid="uid://bscpqs1r0aa3n" path="res://items/blender.tscn" id="1_f0pgq"]
+[ext_resource type="Script" path="res://items/all_items.gd" id="1_kvmpc"]
+[ext_resource type="PackedScene" uid="uid://dl3dx8nqf4nju" path="res://items/cake_knife.tscn" id="2_jf3kt"]
+[ext_resource type="PackedScene" uid="uid://5kfxqyhnmt1y" path="res://items/camera.tscn" id="3_3hlg1"]
+[ext_resource type="PackedScene" uid="uid://dj5u3o0lwcsw5" path="res://items/dark_glasses.tscn" id="4_ds11t"]
+[ext_resource type="PackedScene" uid="uid://c7efpn7e5hrv8" path="res://items/demon_phone.tscn" id="5_1hkdb"]
+[ext_resource type="PackedScene" uid="uid://b65t7cv80glvd" path="res://items/teddy_bear.tscn" id="6_11jss"]
+
+[node name="AllItems" type="Node3D"]
+visible = false
+script = ExtResource("1_kvmpc")
+
+[node name="blender" parent="." instance=ExtResource("1_f0pgq")]
+
+[node name="cake_knife" parent="." instance=ExtResource("2_jf3kt")]
+
+[node name="camera" parent="." instance=ExtResource("3_3hlg1")]
+
+[node name="dark_glasses" parent="." instance=ExtResource("4_ds11t")]
+
+[node name="demon_phone" parent="." instance=ExtResource("5_1hkdb")]
+
+[node name="teddy_bear" parent="." instance=ExtResource("6_11jss")]

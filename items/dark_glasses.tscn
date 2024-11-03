@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj5u3o0lwcsw5"]
+
+[ext_resource type="PackedScene" uid="uid://bmyljr8eurmc2" path="res://items/dark_glasses.glb" id="1_l2ncc"]
+[ext_resource type="Script" path="res://items/item_base.gd" id="2_4xv8q"]
+[ext_resource type="Resource" uid="uid://ngaofusfbjdt" path="res://resources/items/dark_glasses.tres" id="3_8r1x0"]
+
+[node name="dark_glasses" instance=ExtResource("1_l2ncc")]
+script = ExtResource("2_4xv8q")
+data = ExtResource("3_8r1x0")
