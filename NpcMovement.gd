@@ -16,10 +16,6 @@ func _ready() -> void:
 	all_resources.shuffle()
 	next_npc()
 
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_accept"):
-		#leave()
-
 func next_npc():
 	if all_resources.size() == 0:
 		%YelpReviews.display_reviews()
