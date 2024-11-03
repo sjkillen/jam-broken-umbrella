@@ -5,11 +5,14 @@ public partial class NPC : Node
 {
 	[Export] Area3D collisionArea;
 	[Export] Node npc_node;
+	Node dialogueManager;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		collisionArea.InputEvent += OnInputEventSignal;
+
+		dialogueManager = GetNode("/root/DialogueManager");
 	}
 
     private void OnInputEventSignal(Node camera, InputEvent @event, Vector3 eventPosition, Vector3 normal, long shapeIdx)
@@ -36,14 +39,29 @@ public partial class NPC : Node
 	private void StartDialogue(string name)
 	{
 		GD.Print($"Starting dialogue for {name}");
+		string alt_name = "";
 		switch (name)
 		{
-			case "Assassin":
+			case "Sad Child":
+				alt_name = "sad_child";
 				break;
-			case "Chef":
+			case "Cultist":
+				alt_name = "cultist";
+				break;
+			case "Dinosaur Fan":
+				alt_name = "dinosaur_fan";
+				break;
+			case "Lawyer":
+				alt_name = "lawyer";
+				break;
+			case "Assassin":
+				alt_name = "assassin";
 				break;
 		}
-			
-		
+
+		if (alt_name != "")
+			dialogueManager.Call("start_npc_dialouge", alt_name);
+		else
+			GD.PrintErr($"Invalid NPC name: {name}");
 	}
 }
