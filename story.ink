@@ -1,3 +1,27 @@
+=== intro_assassin ===
+    Hello I want to kill someone :3
+    * That's pretty pog
+        I know right
+        -> END
+    * That's bad
+        You suck
+        -> END
+
+=== intro_chef ===
+    -> END
+
+=== intro_lonely_child ===
+    -> END
+
+=== intro_cultist ===
+    -> END
+
+=== intro_lawyer ===
+    -> END
+
+=== intro_dinosaur_fan ===
+    -> END
+
 === yelp_blender ===
     = assassin
         Lovely place. They always think about your needs. I was given a blender and I honestly didn't know what to do with it so I just made some smoothies for a couple of friends. They all died from poison...

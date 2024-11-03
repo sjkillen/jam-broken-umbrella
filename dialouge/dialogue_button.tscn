@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://beuntdgxp1qmr"]
+
+[node name="DialogueButton" type="Button"]
+size_flags_horizontal = 3
