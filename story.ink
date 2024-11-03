@@ -1,26 +1,46 @@
 === intro_assassin ===
-    Hello I want to kill someone :3
-    * That's pretty pog
-        I know right
+    My eyes are up here. You don't need to worry about that.
+    I just came to borrow something off of you but let's keep it in the low.
+    * Sir, you have a weapon with you...
+        As I was saying! Before a little insect interrupted me.
+        I need something useful. Something I can use during my... work. I recently got into some issues and my usual way of working has been "inefficient." I'm sure you can figure out what I need, right? No need to think it over.
         -> END
-    * That's bad
-        You suck
-        -> END
-
 === intro_chef ===
-    -> END
+    Hey there, I was told a place close by where I could find something useful?
+    * You've come to the right place.
+        Huh? Here? This is the place? Well, I guess it’s worth a try.
+        You see I'm a chef, one of the best if I say so myself. But I guess I’m not a businessman.
+        My restaurant has been going steady for years, but lately... People say that my exquisite French cuisine is too much for them.
+        I don't know, maybe I need a new perspective on cooking. Or I need people to learn how to appreciate eating snails. Can you help me solve one of those?
+        -> END
 
 === intro_lonely_child ===
-    -> END
+    Hello friend. My name is Kenny and I am 9 years old with 7 months.
+    * Hello Kenny! What can I do for you?
+        Well, a friend told me that you could give me something that might make me feel better. Is that true?
+        I've been feeling... I don't know. It's that feeling when you are by yourself and no one's there to listen to you. My parents are nice and everything but in school... Do you have anything that might help me?
+        -> END
 
 === intro_cultist ===
+    Hey there little bro, I'm just here to browse a little bit. I heard you have many interesting items with multiple uses.
+    * We sure do.
+        I’ll say, they look pretty magical. I can almost feel their power.
+        Well, honestly I'm not too sure what I need! I've been in this brotherhood for a while but I feel stuck. I haven't moved any ranks and... Don't tell my brothers I said that! Just give me something useful.
     -> END
 
 === intro_lawyer ===
-    -> END
+    Alright kid let's make this quick, I have a meeting in an hour and I am not missing it.
+    * I'm sure we can find someth-
+        What do you have here? What can I get? Do I just grab something off the shelf?
+        I am a very important person and my firm is one of the best in the town, so maybe give me something I could use during my day to day operations. Come on, come on, what are you waiting for?
+        -> END
 
 === intro_dinosaur_fan ===
-    -> END
+    HELLO FELLOW HOMO SAPIENS. I've been told this is where I come when I need something? Mmm yes, this'll do. I'll tell you my tragic story!
+    * I don't need the whole story you know...
+        When I was a kid, no one enjoyed dinosaurs as much as I DID. That's right, I was an EXPERT in anything dinosaur related.
+        If those beautiful creatures were alive it would be so easy for me to tame them. So you need to give me something as INCREDIBLE as my knowledge AND my love for them. What do you have?
+        -> END
 
 === yelp_blender ===
     = assassin
