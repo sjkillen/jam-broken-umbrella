@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://8w7vsvoe4bum"]
+[gd_scene load_steps=8 format=3 uid="uid://8w7vsvoe4bum"]
 
 [ext_resource type="PackedScene" uid="uid://dbr8ftbdlu5v1" path="res://shop/shop.tscn" id="1_ld54r"]
 [ext_resource type="Shader" path="res://scree.gdshader" id="2_qf285"]
+[ext_resource type="AudioStream" uid="uid://bplk3pudjrgpf" path="res://audio/music.wav" id="3_w0rc8"]
 
 [sub_resource type="Environment" id="Environment_fcsjr"]
 background_energy_multiplier = 0.0
@@ -65,3 +66,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w0rc8")
+autoplay = true
