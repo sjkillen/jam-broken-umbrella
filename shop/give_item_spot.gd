@@ -21,3 +21,12 @@ func _on_shelf_item_taken(item: ItemBase) -> void:
 
 func _process(delta: float) -> void:
 	rotate_y(delta * 0.5)
+
+
+func _on_click_detector_npc_given_item(npc_name: String) -> void:
+	%YelpReviews.add_review(item.data, %NPC.current_character)
+	clear_item()
+	%NPC.leave()
+	await get_tree().create_timer(1.0).timeout
+	DialogueManager.interface.close_dialogue()
+	

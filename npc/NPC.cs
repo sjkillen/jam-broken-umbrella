@@ -44,8 +44,8 @@ public partial class NPC : Node
 	{
 		// Check if the input event is a left mouse button click
 		// And then start dialogue
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
-        {
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+		{
 			if (lastNPC != GetNPCName())
 			{
 				interactedWithSameNPCBefore = false;
@@ -58,15 +58,16 @@ public partial class NPC : Node
 			}
 			else
 			{
-				dialogueManager.Call("display_text", $"Thanks for the {GetSelectedItemName()}!");
-				dialogueInterface.Call("add_close_choice");
-				EmitSignal(SignalName.NPCGivenItem);
+				if (GetSelectedItemName() != "") {
+					dialogueManager.Call("display_text", $"Thanks for the {GetSelectedItemName()}!");
+					EmitSignal(SignalName.NPCGivenItem, "");
+				}
 			}
 				
-        }
+		}
 
 		EmitSignal(SignalName.NPCClicked);
-    }
+	}
 
 	/// <summary>
 	/// Gets the name of the current NPC from its NpcResource.
