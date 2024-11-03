@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=36 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://NpcMovement.gd" id="9_ankne"]
 [ext_resource type="Texture2D" uid="uid://x821g57p5aky" path="res://art/assassin.png" id="13_a2nl6"]
 [ext_resource type="PackedScene" uid="uid://e81krh0k4ukj" path="res://shop/item_menu.tscn" id="13_llw3w"]
+[ext_resource type="Script" path="res://npc/NPC.cs" id="13_mjqfg"]
 [ext_resource type="PackedScene" uid="uid://ct52bpu8cmxlp" path="res://shop/npc_path.glb" id="13_xfs2n"]
 [ext_resource type="Script" path="res://shop/give_item_spot.gd" id="14_2ef1o"]
 
@@ -91,6 +92,8 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_x8ap3"]
 top_radius = 0.265
 height = 1.145
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l8my2"]
 
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
@@ -188,6 +191,17 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173937, 0, 0)
 material_override = SubResource("StandardMaterial3D_me78a")
 mesh = SubResource("CylinderMesh_x8ap3")
+
+[node name="ClickDetector" type="Node3D" parent="NPC/NPC" index="2" node_paths=PackedStringArray("collisionArea")]
+script = ExtResource("13_mjqfg")
+collisionArea = NodePath("Area3D")
+npc_name = "Assassin"
+
+[node name="Area3D" type="Area3D" parent="NPC/NPC/ClickDetector" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/NPC/ClickDetector/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616552, 0)
+shape = SubResource("CapsuleShape3D_l8my2")
 
 [node name="ItemMenu" parent="." index="15" instance=ExtResource("13_llw3w")]
 unique_name_in_owner = true
