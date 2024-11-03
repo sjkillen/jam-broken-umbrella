@@ -4,7 +4,7 @@ using System;
 public partial class NPC : Node
 {
 	[Export] Area3D collisionArea;
-	[Export] string npc_name;
+	[Export] Node npc_node;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,13 +18,19 @@ public partial class NPC : Node
 		// And then start dialogue
         if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
         {
-            this.StartDialogue(npc_name);
+            this.StartDialogue(GetNPCName());
         }
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
+	}
+
+	private string GetNPCName()
+	{
+		Resource npcResource = npc_node.Get("current_character").As<Resource>();
+		return (string)npcResource.Get("npc_name");
 	}
 
 	private void StartDialogue(string name)
@@ -38,6 +44,6 @@ public partial class NPC : Node
 				break;
 		}
 			
-
+		
 	}
 }

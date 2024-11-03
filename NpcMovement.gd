@@ -2,7 +2,7 @@ extends Node
 
 @onready var animation_player = $AnimationPlayer
 
-var current_character: NpcResource
+@export var current_character: NpcResource
 
 var all_resources = [
 	preload("res://resources/npcs/child.tres"),
