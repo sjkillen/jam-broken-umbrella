@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcResource" load_steps=3 format=3 uid="uid://d2y7xwu484anh"]
+
+[ext_resource type="Texture2D" uid="uid://x821g57p5aky" path="res://art/assassin.png" id="1_hqgk3"]
+[ext_resource type="Script" path="res://npcResource.gd" id="1_osone"]
+
+[resource]
+script = ExtResource("1_osone")
+npc_name = "Assassin"
+npc_request_dialogue = ""
+content_with_item = false
+npc_end_dialogue = []
+npc_item_response = []
+npc_yelp = []
+art = ExtResource("1_hqgk3")

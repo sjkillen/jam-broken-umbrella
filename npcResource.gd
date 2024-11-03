@@ -8,3 +8,5 @@ class_name NpcResource
 @export var npc_end_dialogue: Array = []
 @export var npc_item_response: Array = []
 @export var npc_yelp: Array = []
+
+@export var art: Texture2D

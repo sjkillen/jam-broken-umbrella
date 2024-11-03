@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=34 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -84,6 +84,13 @@ billboard_mode = 2
 [sub_resource type="QuadMesh" id="QuadMesh_kyysu"]
 material = SubResource("StandardMaterial3D_doedd")
 size = Vector2(0.7, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_me78a"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x8ap3"]
+top_radius = 0.265
+height = 1.145
 
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
@@ -176,6 +183,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191491, 1.16735, 0)
 material_override = SubResource("StandardMaterial3D_cctle")
 mesh = SubResource("QuadMesh_kyysu")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NPC/NPC" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173937, 0, 0)
+material_override = SubResource("StandardMaterial3D_me78a")
+mesh = SubResource("CylinderMesh_x8ap3")
 
 [node name="ItemMenu" parent="." index="15" instance=ExtResource("13_llw3w")]
 unique_name_in_owner = true

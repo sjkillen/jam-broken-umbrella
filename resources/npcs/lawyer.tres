@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcResource" load_steps=3 format=3 uid="uid://c6ed41md4rhsb"]
+
+[ext_resource type="Script" path="res://npcResource.gd" id="1_ln53q"]
+[ext_resource type="Texture2D" uid="uid://beuntfwuywoqw" path="res://art/lawyer.png" id="1_vsuov"]
+
+[resource]
+script = ExtResource("1_ln53q")
+npc_name = "Lawyer"
+npc_request_dialogue = ""
+content_with_item = false
+npc_end_dialogue = []
+npc_item_response = []
+npc_yelp = []
+art = ExtResource("1_vsuov")

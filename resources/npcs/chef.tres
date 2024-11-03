@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcResource" load_steps=3 format=3 uid="uid://cg572jpf65dq8"]
+
+[ext_resource type="Texture2D" uid="uid://b8xdll2llaljr" path="res://art/chef.png" id="1_a5ljp"]
+[ext_resource type="Script" path="res://npcResource.gd" id="1_kri5d"]
+
+[resource]
+script = ExtResource("1_kri5d")
+npc_name = "Chef"
+npc_request_dialogue = ""
+content_with_item = false
+npc_end_dialogue = []
+npc_item_response = []
+npc_yelp = []
+art = ExtResource("1_a5ljp")

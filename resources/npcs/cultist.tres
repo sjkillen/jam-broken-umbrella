@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcResource" load_steps=3 format=3 uid="uid://50ndvi3br3n5"]
+
+[ext_resource type="Texture2D" uid="uid://d1l3bdxa3nfy2" path="res://art/cultist.png" id="1_8j2cy"]
+[ext_resource type="Script" path="res://npcResource.gd" id="1_c30po"]
+
+[resource]
+script = ExtResource("1_c30po")
+npc_name = "Cultist"
+npc_request_dialogue = ""
+content_with_item = false
+npc_end_dialogue = []
+npc_item_response = []
+npc_yelp = []
+art = ExtResource("1_8j2cy")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcResource" load_steps=3 format=3 uid="uid://b4qyy6xufrlgn"]
+
+[ext_resource type="Texture2D" uid="uid://cfi0qta13bi7l" path="res://art/dinosaur.png" id="1_oseaq"]
+[ext_resource type="Script" path="res://npcResource.gd" id="1_tvmef"]
+
+[resource]
+script = ExtResource("1_tvmef")
+npc_name = "Dinosaur Fan"
+npc_request_dialogue = ""
+content_with_item = false
+npc_end_dialogue = []
+npc_item_response = []
+npc_yelp = []
+art = ExtResource("1_oseaq")
