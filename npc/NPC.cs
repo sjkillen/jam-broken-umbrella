@@ -7,7 +7,11 @@ public partial class NPC : Node
 	[Export] Area3D collisionArea;
 	[Export] Node npc_node;
 	[Export] Node shelf_node;
+	[Export] Node dialogueInterface;
 	Node dialogueManager;
+
+	string lastNPC = "";
+	bool interactedWithSameNPCBefore = false;
 
 	Dictionary<string, string> NPCAltNames = new Dictionary<string, string> 
 	{
@@ -18,11 +22,19 @@ public partial class NPC : Node
 		{"Assassin", "assassin"}
 	};
 
+	
+	[Signal]
+	public delegate void NPCClickedEventHandler(string npc_name);
+
+	[Signal]
+	public delegate void NPCGivenItemEventHandler(string npc_name);
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		collisionArea.InputEvent += OnInputEventSignal;
 		dialogueManager = GetNode("/root/DialogueManager");
+		dialogueManager.Connect("dialogue_ended", new Callable(this, nameof(OnDialogueEnded)));
 	}
 
 	/// <summary>
@@ -32,11 +44,28 @@ public partial class NPC : Node
 	{
 		// Check if the input event is a left mouse button click
 		// And then start dialogue
-		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
-		{
-			this.StartIntroDialogue(GetNPCName());
-		}
-	}
+        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+        {
+			if (lastNPC != GetNPCName())
+			{
+				interactedWithSameNPCBefore = false;
+			}
+
+			lastNPC = GetNPCName();
+			if (!interactedWithSameNPCBefore)
+			{
+				this.StartIntroDialogue(GetNPCName());
+			}
+			else
+			{
+				dialogueManager.Call("display_text", $"Thanks for the {GetSelectedItemName()}!");
+				EmitSignal(SignalName.NPCGivenItem);
+			}
+				
+        }
+
+		EmitSignal(SignalName.NPCClicked);
+    }
 
 	/// <summary>
 	/// Gets the name of the current NPC from its NpcResource.
@@ -54,11 +83,17 @@ public partial class NPC : Node
 	/// <returns>A string containing the name of the current item selected.</returns>
 	private string GetSelectedItemName()
 	{
-		Node ItemSlot = shelf_node.Get("active_item").As<Node>();
-		Node ItemBase = ItemSlot.Get("item").As<Node>();
-		// Resource ItemData = ItemBase.Get("data").As<Resource>();
-		// return (string)ItemData.Get("item_name");
-		return "";
+		try
+		{
+			Node itemSpot = GetNode<Node>("%GiveItemSpot");
+			Node itemBase = itemSpot.Get("item").As<Node>();
+			Resource itemData = itemBase.Get("data").As<Resource>();
+			return (string)itemData.Get("item_name");
+		}
+		catch
+		{
+			return "";
+		}
 	}
 
 	/// <summary>
@@ -70,12 +105,21 @@ public partial class NPC : Node
 		GD.Print($"Starting dialogue for {name}");
 		string alt_name = NPCAltNames[name];
 
+		alt_name = "assassin"; // TEMP FOR DEBUG
+
 		if (alt_name != "")
 			dialogueManager.Call("start_npc_dialouge", alt_name);
 		else
 			GD.PrintErr($"Invalid NPC name: {name}");
 		
-		GD.Print(GetSelectedItemName());
+		
+	}
+
+	private void OnDialogueEnded()
+	{
+		GD.Print("ENDED");
+
+		interactedWithSameNPCBefore = true;
 	}
 
 

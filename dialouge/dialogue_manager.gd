@@ -5,6 +5,8 @@ signal interface_set
 var interface: DialogueInterface = null
 var story: InkStory
 
+signal dialogue_ended
+
 # displays a string
 func display_text(text: String):
 	await await_interface()
@@ -15,6 +17,7 @@ func start_npc_dialouge(npc: String):
 	story.ChoosePathString("intro_%s" % [npc])
 	
 	if !story.GetCanContinue(): 
+		dialogue_ended.emit()
 		interface.close_dialogue()
 		return
 	
@@ -28,6 +31,7 @@ func continue_npc_dialouge():
 	
 	if !story.GetCanContinue(): 
 		interface.close_dialogue()
+		dialogue_ended.emit()
 		return
 	
 	interface.display_next_text(story.ContinueMaximally())
@@ -39,6 +43,7 @@ func display_choices(callback: Callable):
 	
 	if choices.size() == 0: 
 		interface.add_close_choice()
+		dialogue_ended.emit()
 		return
 	
 	for choice in choices:
