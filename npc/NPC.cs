@@ -59,6 +59,7 @@ public partial class NPC : Node
 			else
 			{
 				dialogueManager.Call("display_text", $"Thanks for the {GetSelectedItemName()}!");
+				dialogueInterface.Call("add_close_choice");
 				EmitSignal(SignalName.NPCGivenItem);
 			}
 				
