@@ -6,7 +6,7 @@
 script = ExtResource("1_3ev65")
 item_name = "Camera"
 item_real_description = "Camera. Say Cheese!"
-item_initial_description = "Camera. Say Cheese!"
+item_initial_description = "Parts of this camera look older than the invention of the camera"
 item_is_cursed = true
 item_available = true
 item_description_reveal = false

@@ -6,7 +6,7 @@
 script = ExtResource("1_dkr53")
 item_name = "Dark Glasses"
 item_real_description = "Dark Glasses"
-item_initial_description = "Dark Glasses"
+item_initial_description = "Perhaps they're for welding"
 item_is_cursed = true
 item_available = true
 item_description_reveal = false

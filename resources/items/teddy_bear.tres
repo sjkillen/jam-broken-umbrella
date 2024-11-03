@@ -6,8 +6,7 @@
 script = ExtResource("1_0o0gn")
 item_name = "Teddy Bear"
 item_real_description = "Teddy Bear"
-item_initial_description = "Teddy Bear
-"
+item_initial_description = "The bear's grin is almost sinister"
 item_is_cursed = true
 item_available = true
 item_description_reveal = false
