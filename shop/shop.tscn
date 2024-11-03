@@ -84,7 +84,7 @@ billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_kyysu"]
 material = SubResource("StandardMaterial3D_doedd")
-size = Vector2(0.7, 1.4)
+size = Vector2(0.7, 1.165)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_me78a"]
 albedo_color = Color(0, 0, 0, 1)

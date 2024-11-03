@@ -15,18 +15,18 @@ public partial class NPC : Node
 		dialogueManager = GetNode("/root/DialogueManager");
 	}
 
-    private void OnInputEventSignal(Node camera, InputEvent @event, Vector3 eventPosition, Vector3 normal, long shapeIdx)
-    {
-        // Check if the input event is a left mouse button click
+	private void OnInputEventSignal(Node camera, InputEvent @event, Vector3 eventPosition, Vector3 normal, long shapeIdx)
+	{
+		// Check if the input event is a left mouse button click
 		// And then start dialogue
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
-        {
-            this.StartDialogue(GetNPCName());
-        }
-    }
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+		{
+			this.StartDialogue(GetNPCName());
+		}
+	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
 	{
 	}
 
