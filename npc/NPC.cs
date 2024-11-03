@@ -61,13 +61,13 @@ public partial class NPC : Node
 				if (GetSelectedItemName() != "")
 				{
 					dialogueManager.Call("display_text", $"Thanks for the {GetSelectedItemName()}!");
-					dialogueInterface.Call("add_close_choice");
+					//dialogueInterface.Call("add_close_choice");
 					EmitSignal(SignalName.NPCGivenItem, "");
 				}
 				else
 				{
 					dialogueManager.Call("display_text", $"Lend me an item... or else!");
-					dialogueInterface.Call("add_close_choice");
+					//dialogueInterface.Call("add_close_choice");
 				}
 			}
 				
