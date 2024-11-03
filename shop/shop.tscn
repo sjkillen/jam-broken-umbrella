@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=31 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cevfbb5q81xkp" path="res://dialouge/dialogue_interface.tscn" id="7_dpsqj"]
 [ext_resource type="PackedScene" uid="uid://d1r7m5jnixbuu" path="res://shop/door.tscn" id="7_xshsx"]
 [ext_resource type="Script" path="res://NpcMovement.gd" id="9_ankne"]
+[ext_resource type="Script" path="res://npc/NPC.cs" id="13_i86bp"]
 [ext_resource type="PackedScene" uid="uid://ct52bpu8cmxlp" path="res://shop/npc_path.glb" id="13_xfs2n"]
 [ext_resource type="Texture2D" uid="uid://5yuvjdqt0hah" path="res://burlap.png" id="14_vka06"]
 
@@ -78,6 +79,8 @@ radius = 0.3
 height = 1.5
 radial_segments = 6
 rings = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_114af"]
 
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
@@ -160,13 +163,53 @@ disabled = true
 
 [node name="NPC" parent="." index="14" instance=ExtResource("13_xfs2n")]
 top_level = true
+visible = false
 script = ExtResource("9_ankne")
+
+[node name="NPC" parent="NPC" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84735, 0, 4.6075)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/NPC" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.709308, 0)
 material_override = SubResource("StandardMaterial3D_pvg2n")
 mesh = SubResource("CapsuleMesh_thyf0")
 skeleton = NodePath("")
+
+[node name="NPC_Container" type="Node3D" parent="NPC/NPC" index="1" node_paths=PackedStringArray("collisionArea")]
+script = ExtResource("13_i86bp")
+collisionArea = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="NPC/NPC/NPC_Container" index="0"]
+transform = Transform3D(0.577494, 0, 0, 0, 0.577494, 0, 0, 0, 0.577494, 0, 0.668548, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/NPC/NPC_Container/Area3D" index="0"]
+transform = Transform3D(1.09893, 0, 0, 0, 1.09893, 0, 0, 0, 1.09893, 0, 0.297804, 0)
+shape = SubResource("CapsuleShape3D_114af")
+
+[node name="NPC_Assassin" parent="." index="15" instance=ExtResource("13_xfs2n")]
+top_level = true
+script = ExtResource("9_ankne")
+
+[node name="NPC" parent="NPC_Assassin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84735, 0, 4.6075)
+
+[node name="Assassin" type="Node3D" parent="NPC_Assassin/NPC" index="0" node_paths=PackedStringArray("collisionArea")]
+script = ExtResource("13_i86bp")
+collisionArea = NodePath("Area3D")
+npc_name = "Assassin"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC_Assassin/NPC/Assassin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.709308, 0)
+material_override = SubResource("StandardMaterial3D_pvg2n")
+mesh = SubResource("CapsuleMesh_thyf0")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="NPC_Assassin/NPC/Assassin" index="1"]
+transform = Transform3D(0.577494, 0, 0, 0, 0.577494, 0, 0, 0, 0.577494, 0, 0.668548, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC_Assassin/NPC/Assassin/Area3D" index="0"]
+transform = Transform3D(1.09893, 0, 0, 0, 1.09893, 0, 0, 0, 1.09893, 0, 0.297804, 0)
+shape = SubResource("CapsuleShape3D_114af")
 
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
@@ -181,3 +224,4 @@ skeleton = NodePath("")
 [connection signal="mouse_exited" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_exited"]
 
 [editable path="NPC"]
+[editable path="NPC_Assassin"]
