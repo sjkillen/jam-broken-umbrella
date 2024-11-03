@@ -4,17 +4,14 @@
 [ext_resource type="Resource" uid="uid://ur3vtrg50suu" path="res://story.ink" id="2_crhi8"]
 
 [node name="DialogueInterface" type="Panel"]
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -256.0
+offset_bottom = 192.0
 grow_horizontal = 2
-grow_vertical = 0
 script = ExtResource("1_3n8o8")
 story = ExtResource("2_crhi8")
 
-[node name="HBoxContatiner" type="HBoxContainer" parent="."]
+[node name="HBoxContatiner" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +20,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="NameLabel" type="Label" parent="HBoxContatiner"]
+layout_mode = 2
+
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContatiner"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
