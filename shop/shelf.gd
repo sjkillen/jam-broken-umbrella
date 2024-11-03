@@ -9,6 +9,7 @@ signal shelf_active_change(v: bool)
 var active_item: ItemSlot = null
 signal active_item_change(v: ItemSlot)
 
+signal item_taken(item: ItemBase)
 
 # Whether the shelf is pointed to (but not selected
 var shelf_point := false
@@ -91,4 +92,17 @@ func _on_back_button_pressed() -> void:
 func show_dialog(text: String) -> void:
 	#dialog_label.text = "test"
 	pass
+	
+
+
+func _on_item_menu_item_taken(slot: ItemSlot) -> void:
+	var item := slot.unstock()
+	
+	if %GiveItemSpot.item:
+		var swap_item: ItemBase = %GiveItemSpot.clear_item()
+		slot.stock(swap_item)
+		
+	unclick_item_slot()
+	unclick_shelf()
+	item_taken.emit(item)
 	

@@ -4,4 +4,4 @@
 
 [node name="Main" type="Node3D"]
 
-[node name="shop" parent="." instance=ExtResource("1_xbcg6")]
+[node name="world" parent="." instance=ExtResource("1_xbcg6")]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://e81krh0k4ukj"]
+
+[ext_resource type="Script" path="res://shop/item_menu.gd" id="1_0wq2l"]
+
+[node name="ItemMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_0wq2l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -356.0
+offset_top = 49.0
+offset_right = -39.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lorem Ipsum"
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Long descriptionLong descriptionLong descriptionLong descriptionLong descriptionLong descriptionLong descriptionLong descriptionLong descriptionLong descriptionLong description"
+autowrap_mode = 2
+
+[node name="Curse" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Curse: Unknown"
+
+[node name="Take" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -357.0
+offset_top = 345.0
+offset_right = -40.0
+offset_bottom = 376.0
+text = "Take"
+
+[connection signal="pressed" from="Take" to="." method="_on_take_pressed"]
