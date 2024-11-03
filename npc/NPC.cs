@@ -106,8 +106,6 @@ public partial class NPC : Node
 		GD.Print($"Starting dialogue for {name}");
 		string alt_name = NPCAltNames[name];
 
-		alt_name = "assassin"; // TEMP FOR DEBUG
-
 		if (alt_name != "")
 			dialogueManager.Call("start_npc_dialouge", alt_name);
 		else
