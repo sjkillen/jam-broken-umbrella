@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=32 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://cevfbb5q81xkp" path="res://dialouge/dialogue_interface.tscn" id="7_dpsqj"]
 [ext_resource type="PackedScene" uid="uid://d1r7m5jnixbuu" path="res://shop/door.tscn" id="7_xshsx"]
 [ext_resource type="Script" path="res://NpcMovement.gd" id="9_ankne"]
+[ext_resource type="Texture2D" uid="uid://x821g57p5aky" path="res://art/assassin.png" id="13_a2nl6"]
+[ext_resource type="PackedScene" uid="uid://e81krh0k4ukj" path="res://shop/item_menu.tscn" id="13_llw3w"]
 [ext_resource type="PackedScene" uid="uid://ct52bpu8cmxlp" path="res://shop/npc_path.glb" id="13_xfs2n"]
-[ext_resource type="Texture2D" uid="uid://5yuvjdqt0hah" path="res://burlap.png" id="14_vka06"]
+[ext_resource type="Script" path="res://shop/give_item_spot.gd" id="14_2ef1o"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
 animation = &"InitialFrame"
@@ -69,15 +71,19 @@ states/Up/position = Vector2(348, 31)
 transitions = ["Start", "Counter", SubResource("AnimationNodeStateMachineTransition_rv5th"), "Counter", "LookShelf", SubResource("AnimationNodeStateMachineTransition_6j35e"), "LookShelf", "Counter", SubResource("AnimationNodeStateMachineTransition_0x1e8"), "Up", "Counter", SubResource("AnimationNodeStateMachineTransition_nu0ll"), "Counter", "Up", SubResource("AnimationNodeStateMachineTransition_xmtic"), "Left", "Counter", SubResource("AnimationNodeStateMachineTransition_t2lcg"), "Counter", "Left", SubResource("AnimationNodeStateMachineTransition_ed1ek")]
 graph_offset = Vector2(-16, 62)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvg2n"]
-albedo_texture = ExtResource("14_vka06")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cctle"]
+transparency = 1
+albedo_texture = ExtResource("13_a2nl6")
 texture_filter = 2
+billboard_mode = 2
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_thyf0"]
-radius = 0.3
-height = 1.5
-radial_segments = 6
-rings = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_doedd"]
+albedo_texture = ExtResource("13_a2nl6")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_kyysu"]
+material = SubResource("StandardMaterial3D_doedd")
+size = Vector2(0.7, 1.4)
 
 [node name="shop" instance=ExtResource("1_gccpm")]
 script = ExtResource("2_x5iv1")
@@ -162,13 +168,26 @@ disabled = true
 top_level = true
 script = ExtResource("9_ankne")
 
+[node name="NPC" parent="NPC" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0260095, 0, 3.3021)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/NPC" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.709308, 0)
-material_override = SubResource("StandardMaterial3D_pvg2n")
-mesh = SubResource("CapsuleMesh_thyf0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191491, 1.16735, 0)
+material_override = SubResource("StandardMaterial3D_cctle")
+mesh = SubResource("QuadMesh_kyysu")
 skeleton = NodePath("")
 
+[node name="ItemMenu" parent="." index="15" instance=ExtResource("13_llw3w")]
+unique_name_in_owner = true
+
+[node name="GiveItemSpot" type="Marker3D" parent="." index="16"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36066, 0.90196, 1.4748)
+script = ExtResource("14_2ef1o")
+
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
+[connection signal="active_item_change" from="Shelf" to="ItemMenu" method="_on_shelf_active_item_change"]
+[connection signal="item_taken" from="Shelf" to="GiveItemSpot" method="_on_shelf_item_taken"]
 [connection signal="shelf_active_change" from="Shelf" to="Camera" method="_on_shelf_shelf_active_change"]
 [connection signal="shelf_active_change" from="Shelf" to="ShelfMeshCollision/GN Instance14" method="_on_shelf_shelf_active_change"]
 [connection signal="shelf_active_change" from="Shelf" to="Control/BackButton" method="_on_shelf_shelf_active_change"]
@@ -179,5 +198,6 @@ skeleton = NodePath("")
 [connection signal="mouse_exited" from="ViewControls/Lookup" to="Camera" method="_on_lookup_mouse_exited"]
 [connection signal="mouse_entered" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_entered"]
 [connection signal="mouse_exited" from="ViewControls/Lookleft" to="Camera" method="_on_lookleft_mouse_exited"]
+[connection signal="item_taken" from="ItemMenu" to="Shelf" method="_on_item_menu_item_taken"]
 
 [editable path="NPC"]

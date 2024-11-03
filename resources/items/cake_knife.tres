@@ -6,7 +6,7 @@
 script = ExtResource("1_d4ftb")
 item_name = "Cake Knife"
 item_real_description = "A cake knife"
-item_initial_description = "A cake knife"
+item_initial_description = "There's a few crumbs of cake left on the handle but more seem to show up when you brush them off"
 item_is_cursed = true
 item_available = true
 item_description_reveal = false

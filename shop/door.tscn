@@ -45,10 +45,12 @@ transitions = ["Start", "Closed", SubResource("AnimationNodeStateMachineTransiti
 script = ExtResource("2_p01iw")
 
 [node name="DoorRig" parent="." index="0"]
-transform = Transform3D(-0.889288, 0, -0.457347, 0, 1, 0, 0.457347, 0, -0.889288, 0.449781, 1.09146, 3.16759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.449781, 1.09146, 3.16759)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeStateMachine_r50nv")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="DoorSounds" type="AudioStreamPlayer" parent="." index="4"]
+[node name="DoorClose" type="AudioStreamPlayer" parent="." index="4"]
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="." index="5"]
