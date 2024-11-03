@@ -12,3 +12,4 @@ npc_end_dialogue = []
 npc_item_response = []
 npc_yelp = []
 art = ExtResource("1_l32er")
+npc_yelp_field = "lonely_child"

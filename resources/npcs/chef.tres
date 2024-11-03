@@ -12,3 +12,4 @@ npc_end_dialogue = []
 npc_item_response = []
 npc_yelp = []
 art = ExtResource("1_a5ljp")
+npc_yelp_field = "chef"

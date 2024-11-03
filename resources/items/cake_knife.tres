@@ -10,3 +10,4 @@ item_initial_description = "There's a few crumbs of cake left on the handle but 
 item_is_cursed = true
 item_available = true
 item_description_reveal = false
+item_yelp_name = "cake_knife"

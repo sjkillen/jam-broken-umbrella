@@ -12,3 +12,4 @@ npc_end_dialogue = []
 npc_item_response = []
 npc_yelp = []
 art = ExtResource("1_8j2cy")
+npc_yelp_field = "cultist"

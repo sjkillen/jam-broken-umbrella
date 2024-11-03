@@ -10,3 +10,4 @@ item_initial_description = "There's no tone. Just a faint scream."
 item_is_cursed = true
 item_available = true
 item_description_reveal = false
+item_yelp_name = "demon_telephone"

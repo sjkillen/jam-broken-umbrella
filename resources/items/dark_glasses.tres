@@ -10,3 +10,4 @@ item_initial_description = "Perhaps they're for welding"
 item_is_cursed = true
 item_available = true
 item_description_reveal = false
+item_yelp_name = "dark_glasses"

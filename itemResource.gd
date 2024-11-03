@@ -7,3 +7,5 @@ class_name ItemResource
 @export var item_is_cursed: bool = false
 @export var item_available: bool = true
 @export var item_description_reveal: bool = false
+
+@export var item_yelp_name: String

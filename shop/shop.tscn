@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dbr8ftbdlu5v1"]
+[gd_scene load_steps=37 format=3 uid="uid://dbr8ftbdlu5v1"]
 
 [ext_resource type="PackedScene" uid="uid://cetw568mu50jv" path="res://shop/shop.glb" id="1_gccpm"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="2_x5iv1"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://npc/NPC.cs" id="13_mjqfg"]
 [ext_resource type="PackedScene" uid="uid://ct52bpu8cmxlp" path="res://shop/npc_path.glb" id="13_xfs2n"]
 [ext_resource type="Script" path="res://shop/give_item_spot.gd" id="14_2ef1o"]
+[ext_resource type="PackedScene" uid="uid://ce71a51kbmahs" path="res://yelp_reviews.tscn" id="16_g3ycg"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ntd"]
 animation = &"InitialFrame"
@@ -210,6 +211,8 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36066, 0.90196, 1.4748)
 script = ExtResource("14_2ef1o")
+
+[node name="YelpReviews" parent="." index="17" instance=ExtResource("16_g3ycg")]
 
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="active_item_change" from="Shelf" to="ItemMenu" method="_on_shelf_active_item_change"]

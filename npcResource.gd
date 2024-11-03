@@ -10,3 +10,4 @@ class_name NpcResource
 @export var npc_yelp: Array = []
 
 @export var art: Texture2D
+@export var npc_yelp_field: String
