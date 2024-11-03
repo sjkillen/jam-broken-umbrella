@@ -13,20 +13,25 @@ var all_resources = [
 ]
 
 func _ready() -> void:
-	# Play the move animation when the NPC is ready
-	animation_player.play("WalkInside")
-	var i := randi_range(0, all_resources.size()-1)
-	set_character(all_resources[i])
-	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):  # Replace with your specific action
-		animation_player.play("NpcEnter")
-		
-func _process(delta: float) -> void:
-	# Additional logic can be added here if needed
-	pass
+	all_resources.shuffle()
+	next_npc()
 
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#leave()
+
+func next_npc():
+	if all_resources.size() == 0:
+		%YelpReviews.display_reviews()
+		return
+	set_character(all_resources.pop_back())
+	animation_player.play("WalkInside")
+
+func leave():
+	animation_player.play("WalkOutside")
+	
 func set_character(who: NpcResource):
 	var mat: StandardMaterial3D = $NPC/MeshInstance3D.get_active_material(0)
 	mat.albedo_texture = who.art
+	mat.emission_texture = who.art
 	current_character = who

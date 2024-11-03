@@ -76,6 +76,8 @@ graph_offset = Vector2(-16, 62)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cctle"]
 transparency = 1
 albedo_texture = ExtResource("13_a2nl6")
+emission_enabled = true
+emission_energy_multiplier = 0.5
 texture_filter = 2
 billboard_mode = 2
 
@@ -88,6 +90,7 @@ material = SubResource("StandardMaterial3D_doedd")
 size = Vector2(0.7, 1.165)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_me78a"]
+shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_x8ap3"]
@@ -179,9 +182,6 @@ disabled = true
 top_level = true
 script = ExtResource("9_ankne")
 
-[node name="NPC" parent="NPC" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0260095, 0, 3.3021)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/NPC" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191491, 1.16735, 0)
 material_override = SubResource("StandardMaterial3D_cctle")
@@ -214,6 +214,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36066, 0.90196, 1.4748)
 script = ExtResource("14_2ef1o")
 
 [node name="YelpReviews" parent="." index="17" instance=ExtResource("16_g3ycg")]
+unique_name_in_owner = true
 
 [connection signal="active_item_change" from="Shelf" to="Camera" method="_on_shelf_active_item_change"]
 [connection signal="active_item_change" from="Shelf" to="ItemMenu" method="_on_shelf_active_item_change"]
