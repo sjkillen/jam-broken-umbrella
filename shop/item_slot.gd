@@ -1,7 +1,7 @@
 extends Node3D
 class_name ItemSlot
 
-var item: ItemBase = null
+@export var item: ItemBase = null
 
 func _on_area_3d_mouse_entered() -> void:
 	if is_stocked():

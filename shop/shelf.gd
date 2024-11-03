@@ -6,7 +6,7 @@ extends Node3D
 var shelf_active := false
 signal shelf_active_change(v: bool)
 
-var active_item: ItemSlot = null
+@export var active_item: ItemSlot = null
 signal active_item_change(v: ItemSlot)
 
 signal item_taken(item: ItemBase)

@@ -193,10 +193,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173937, 0, 0)
 material_override = SubResource("StandardMaterial3D_me78a")
 mesh = SubResource("CylinderMesh_x8ap3")
 
-[node name="ClickDetector" type="Node3D" parent="NPC/NPC" index="2" node_paths=PackedStringArray("collisionArea", "npc_node")]
+[node name="ClickDetector" type="Node3D" parent="NPC/NPC" index="2" node_paths=PackedStringArray("collisionArea", "npc_node", "shelf_node")]
 script = ExtResource("13_mjqfg")
 collisionArea = NodePath("Area3D")
 npc_node = NodePath("../..")
+shelf_node = NodePath("../../../Shelf")
 
 [node name="Area3D" type="Area3D" parent="NPC/NPC/ClickDetector" index="0"]
 
